@@ -1,176 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>The Authority Stack™ | Jori O’Neale</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Monthly access to the LinkedIn GPTs that help you think clearly, post confidently, and respond with authority." />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get Jori O'Neale's LinkedIn GPT tools to write, score, and respond with authority.">
+  <title>Jori O'Neale | LinkedIn Authority GPTs</title>
+  
   <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #121624;
+      --muted: #98a2b3;
+      --text: #f2f4f7;
+      --border: rgba(255, 255, 255, 0.10);
+      --accent: #7c3aed;
+      --accent2: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #0f1220;
-      color: #f5f5f7;
-      line-height: 1.6;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(900px 500px at 20% 0%, rgba(124, 58, 237, 0.25), transparent 60%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(34, 197, 94, 0.18), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 900px;
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: 980px;
       margin: 0 auto;
-      padding: 60px 24px;
+      padding: 48px 20px;
     }
 
-    h1, h2, h3 {
-      line-height: 1.25;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
     }
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      font-size: 18px;
     }
 
-    h2 {
-      font-size: 28px;
-      margin-top: 60px;
-    }
-
-    h3 {
-      font-size: 20px;
-      margin-top: 32px;
-    }
-
-    p {
-      color: #cfd2ff;
-      max-width: 720px;
+    .pill {
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .hero {
-      margin-bottom: 60px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border-radius: 20px;
+      padding: 28px 22px;
     }
 
-    .cta {
-      margin-top: 32px;
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
     }
 
-    .button {
-      display: inline-block;
-      background: linear-gradient(135deg, #7c7cff, #57e6b6);
-      color: #0f1220;
-      padding: 16px 28px;
-      border-radius: 12px;
-      font-weight: 700;
+    .sub {
+      margin: 0 0 18px 0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 70ch;
+    }
+
+    .ctaRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
       text-decoration: none;
-      margin-right: 12px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.03);
+      transition: transform 0.08s ease, background 0.15s ease, border-color 0.15s ease;
+      cursor: pointer;
     }
 
-    .button.secondary {
-      background: transparent;
-      border: 1px solid #444;
-      color: #cfd2ff;
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.22);
     }
 
-    .small {
-      font-size: 14px;
-      color: #a5a7ff;
-      margin-top: 8px;
+    .btnPrimary {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.95), rgba(34, 197, 94, 0.75));
+      border-color: transparent;
+      color: #0b0d12;
+    }
+
+    .btnPrimary:hover {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 1), rgba(34, 197, 94, 0.85));
+    }
+
+    .smallNote {
+      margin: 10px 0 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 18px;
     }
 
     .card {
-      background: #171a33;
-      border: 1px solid #2a2e5c;
-      border-radius: 16px;
-      padding: 28px;
-      margin-top: 28px;
+      grid-column: span 12;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 18px;
+      padding: 18px 16px;
     }
 
-    ul {
-      margin-top: 12px;
-      padding-left: 20px;
+    @media (min-width: 860px) {
+      .card {
+        grid-column: span 4;
+      }
     }
 
-    li {
-      margin-bottom: 10px;
-      color: #cfd2ff;
+    .tag {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.02);
     }
 
-    .price-box {
-      margin-top: 48px;
-      padding: 32px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #1c204a, #131633);
-      border: 1px solid #3a3fff;
+    .card h2 {
+      margin: 10px 0 8px 0;
+      font-size: 18px;
     }
 
     .price {
-      font-size: 36px;
-      font-weight: 800;
-      margin: 12px 0;
+      font-size: 28px;
+      font-weight: 900;
+      margin: 6px 0 10px 0;
     }
 
-    .muted {
-      color: #9da0ff;
-      font-size: 14px;
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text);
+    }
+
+    li {
+      margin: 7px 0;
+      color: var(--muted);
+    }
+
+    .bundle {
+      margin-top: 16px;
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      background: linear-gradient(180deg, rgba(34, 197, 94, 0.10), rgba(255, 255, 255, 0.02));
+      border-radius: 20px;
+      padding: 18px 16px;
+    }
+
+    .bundleTop {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .strike {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .bundle .price {
+      margin: 0;
+    }
+
+    .fine {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
     }
 
     footer {
-      margin-top: 80px;
-      border-top: 1px solid #2a2e5c;
-      padding-top: 24px;
-      font-size: 14px;
-      color: #9da0ff;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 18px 0;
+    }
+
+    .notice {
+      margin-top: 10px;
+      padding: 12px 12px;
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .bundleTag {
+      border-color: rgba(34, 197, 94, 0.35);
+      color: #d1fae5;
+      background: rgba(34, 197, 94, 0.10);
+    }
+
+    .bundleTitle {
+      margin: 10px 0 6px 0;
+    }
+
+    .bundleSubtitle {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .priceSection {
+      text-align: right;
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
+  <div class="wrap">
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="brand">Jori O'Neale</div>
+      <div class="pill">LinkedIn Authority Tools • Instant Access</div>
+    </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-      <h1>Think Clearly. Post Confidently. Respond Like a Pro.</h1>
-      <p>
-        Get monthly access to the LinkedIn GPTs I use to decide what to post,
-        how to position it, and what to say when people message me — without
-        spending all day on LinkedIn.
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Hero">
+      <h1>Turn your LinkedIn into an Authority Engine.</h1>
+      <p class="sub">
+        These GPT tools help you decide what to post, score what you've written, and respond to DMs with confidence—
+        without spending all day on LinkedIn.
       </p>
 
-      <div class="cta">
-        <!-- REPLACE THIS LINK -->
-        <a href="REPLACE_WITH_CHECKOUT_LINK" class="button">
-          Get Access to the Authority Stack →
+      <div class="ctaRow">
+        <a class="btn btnPrimary" href="https://buy.stripe.com/5kQ6oH8On6UP09tcjo3Je1c" target="_blank" rel="noopener">
+          Take me to my GPTs, please →
         </a>
-        <a href="#whats-included" class="button secondary">
-          See what’s included
-        </a>
-        <div class="small">Monthly access • Cancel anytime</div>
+        <a class="btn" href="#tools">See what's included</a>
+      </div>
+
+  
+
+      <div class="notice">
+        <strong>Workshop bonus:</strong> If you attended today, start with the Scorecard first—then add the others as you scale.
       </div>
     </section>
 
-    <!-- WHAT THIS IS -->
-    <section>
-      <h2>This Is Thinking Support — Not a Course</h2>
-      <p>
-        This isn’t a content calendar, automation system, or program you have
-        to “keep up with.”
-      </p>
-      <p>
-        It’s ongoing support for the three moments that matter most on LinkedIn:
-        deciding what to say, understanding how it lands, and knowing what to
-        say next.
-      </p>
+    <div class="divider"></div>
+
+    <!-- Tools Section -->
+    <section id="tools" aria-label="Tools">
+      <div class="grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <span class="tag">Best first step</span>
+          <h2>Authority Scorecard™</h2>
+          <p class="price">$37</p>
+          <ul>
+            <li>Scores your post for <strong>Authority</strong>, <strong>Audience</strong>, and <strong>Sales</strong> (0–100).</li>
+            <li>Flags what's weakening the post and what to fix first.</li>
+            <li>Gives hook + CTA upgrades that still sound like you.</li>
+            <li>Suggests the best photo type to amplify the post.</li>
+          </ul>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <span class="tag">For consistency</span>
+          <h2>Authority Engine™</h2>
+          <p class="price">$97</p>
+          <ul>
+            <li>Helps you decide <strong>what to post next</strong> (grow, nurture, convert).</li>
+            <li>Builds a simple posting rhythm that won't burn you out.</li>
+            <li>Aligns content to your offer, role, or goals—without pitching.</li>
+            <li>Reduces decision fatigue so you stay visible consistently.</li>
+          </ul>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <span class="tag">For the DMs</span>
+          <h2>Authority Reply™</h2>
+          <p class="price">$97</p>
+          <ul>
+            <li>Helps you respond to DMs without sounding salesy or awkward.</li>
+            <li>Identifies message intent (curious, warm, buyer, networking).</li>
+            <li>Gives copy-paste replies + a next-step suggestion when appropriate.</li>
+            <li>Keeps you calm, clear, and consistent in conversations.</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Bundle Section -->
+      <div class="bundle" aria-label="Bundle">
+        <div class="bundleTop">
+          <div>
+            <div class="tag bundleTag">Best value bundle</div>
+            <h2 class="bundleTitle">The Authority Stack™ (All 3 GPTs)</h2>
+            <p class="bundleSubtitle">
+              Write with clarity, post with intention, and reply with confidence.
+            </p>
+          </div>
+          <div class="priceSection">
+            <div class="strike">$231 separately</div>
+            <div class="price">$197</div>
+          </div>
+        </div>
+
+        <div class="ctaRow" style="margin-top: 14px">
+          <a class="btn btnPrimary" href="https://buy.stripe.com/cNieVd5Cb0wr3lFbfk3Je1b" target="_blank" rel="noopener">
+            Yes — I want the full stack →
+          </a>
+          <a class="btn" href="https://buy.stripe.com/5kQ6oH8On6UP09tcjo3Je1c" target="_blank" rel="noopener">
+            Just take me to the tools →
+          </a>
+        </div>
+
+        <p class="fine">
+          Hiring comparison (typical): LinkedIn coaching ($1,500–$3,000), copywriting ($500–$1,000/mo), consulting ($2,500+).
+          These GPTs are your fast, practical shortcut.
+        </p>
+      </div>
     </section>
 
-    <!-- WHAT YOU GET -->
-    <section id="whats-included">
-      <h2>What You Get</h2>
+    <!-- Footer -->
+    <footer>
+      <div>© <span id="year"></span> Jori O'Neale • All rights reserved</div>
+      <div>Questions? Reply to the email from the workshop host or message Jori on LinkedIn.</div>
+    </footer>
+  </div>
 
-      <div class="card">
-        <p>
-          When you join, you receive access to a private document that includes:
-        </p>
-        <ul>
-          <li>Direct links to all three Authority GPTs</li>
-          <li>A simple SOP for how to use each one</li>
-          <li>Clear guidance on when to use which GPT</li>
-          <li>Starter prompts so you never start
+  <script>
+    // Auto-update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
