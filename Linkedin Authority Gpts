@@ -286,7 +286,7 @@
       </p>
 
       <div class="ctaRow">
-        <a class="btn btnPrimary" href="https://buy.stripe.com/5kQ6oH8On6UP09tcjo3Je1c" target="_blank" rel="noopener">
+        <a class="btn btnPrimary" href=https://buy.stripe.com/5kQ6oH8On6UP09tcjo3Je1c target="_blank" rel="noopener">
           Take me to my GPTs, please →
         </a>
         <a class="btn" href="#tools">See what's included</a>
@@ -361,10 +361,10 @@
         </div>
 
         <div class="ctaRow" style="margin-top: 14px">
-          <a class="btn btnPrimary" href="https://buy.stripe.com/cNieVd5Cb0wr3lFbfk3Je1b" target="_blank" rel="noopener">
+          <a class="btn btnPrimary" href=https://buy.stripe.com/cNieVd5Cb0wr3lFbfk3Je1b target="_blank" rel="noopener">
             Yes — I want the full stack →
           </a>
-          <a class="btn" href="https://buy.stripe.com/5kQ6oH8On6UP09tcjo3Je1c" target="_blank" rel="noopener">
+          <a class="btn" href=https://buy.stripe.com/5kQ6oH8On6UP09tcjo3Je1c" target=_blank" rel="noopener">
             Just take me to the tools →
           </a>
         </div>
